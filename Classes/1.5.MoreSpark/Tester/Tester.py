@@ -134,11 +134,6 @@ def TestRDD( data, func_student, corAns, corType, isNum=True,twoInputs=False, ta
 
     print "Correct Output: " + str(corAns)
     
-    try: assert( type(studentRDD) == corType )
-    except AssertionError as e:
-        print "\nError: Incorrect return type. The return type of your function should be: " + str(corType)
-        return False
-    
     newDebugStr  = studentRDD.toDebugString()
     initDebugStr = '|'.join(initDebugStr.split('|')[-1:])[3:50]
     
