@@ -17,3 +17,14 @@ def make_figure(DataSets,names,Title='no title',size=(8,6)):
     title(Title)
     grid()
     legend()
+    
+def make_multi_figure(DataSets,names,Title='no title',size=(8,6)):
+    figure(figsize=size)
+    for j in range(len(DataSets)):
+        for i in range(len(DataSets[j])):
+            keys,train,test = extract_errors(DataSets[j][i])
+            plot(keys,train,label='train-'+names[i])
+            plot(keys,test,label='test-'+names[i])
+    title(Title)
+    grid()
+    legend()
